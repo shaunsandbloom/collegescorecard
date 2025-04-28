@@ -6,12 +6,12 @@ import us
 
 from tqdm import tqdm
 
-url = os.environ.get('COLLEGE_SCORECARD_URL')
-api_key = os.environ.get('COLLEGE_SCORECARD_API_KEY')
+url = 'https://api.data.gov/ed/collegescorecard/v1/schools'
 
 class CollegeScorecard:
 
-    def __init__(self):
+    def __init__(self, api_key = None):
+        self.api_key = api_key
         self.session_url = f'{url}?api_key={api_key}'
         self.fields = list()
         self.parameters = list()
